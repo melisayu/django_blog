@@ -25,7 +25,7 @@ SECRET_KEY = '_jvr)5ta_5quaoll)6mi^b5xnd$-ap62th5o*lbbzsd#blpg!s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'boiling-dusk-44452.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'boiling-dusk-44452.herokuapp.com']
 
 
 # Application definition
