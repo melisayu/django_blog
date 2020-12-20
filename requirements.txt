@@ -3,3 +3,5 @@ Pillow==7.2.0
 psycopg2==2.7.5
 pytz==2020.1
 whitenoise==5.1.0
+martor
+gunicorn
