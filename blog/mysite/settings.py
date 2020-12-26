@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-import dj_database_url
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,6 +24,8 @@ SECRET_KEY = '_jvr)5ta_5quaoll)6mi^b5xnd$-ap62th5o*lbbzsd#blpg!s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'melisayu.pythonanywhere.com']
 
 # Application definition
 
@@ -82,9 +83,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
 
 
 # Password validation
