@@ -6,7 +6,7 @@ from .models import Post, Comment
 
 
 def post_list(request):
-    posts = Post.objects.order_by('published_date')
+    posts = Post.objects.order_by('published_date').filter(published_date__isnull=False)
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
@@ -16,7 +16,7 @@ def post_detail(request, pk):
 @login_required
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -31,7 +31,7 @@ def post_new(request):
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(data=request.POST, files=request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
